@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./app
+    container_name: nodejs-app
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - webnet
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge

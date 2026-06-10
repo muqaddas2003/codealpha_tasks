@@ -1,0 +1,12 @@
+{
+  "name": "codealpha-nodejs-app",
+  "version": "1.0.0",
+  "description": "CodeAlpha DevOps Internship - Docker Web Server Task",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
